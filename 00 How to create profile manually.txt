@@ -1,0 +1,14 @@
+        # Read the converted xml file using a parser
+        [xml]$profileXml = Get-Content $outXml
+
+        # Read the lookup file (also XML)
+        [xml]$lookupXml = Get-Content $lookupFile.FullName
+
+        # Generate the new Profile
+        # replace the `<LookTable>` and `<ToneCuve>` xml tags with the ones from the film look text file
+        # `<DefaultBlackRender>` should be set to `1`
+        # `<ProfileLookTableEncoding>` should be set to `1`
+        # change `<ProfileName>`
+        $profileXml.dcpData.ProfileName = "Fuji Adobe Standard $fujiProfileName"
+        $profileXml.dcpData.DefaultBlackRender="1"
+        $profileXml.dcpData.ProfileLookTableEncoding="1"
