@@ -4,7 +4,6 @@
 
 import xml.etree.ElementTree as ET
 
-# 
 camera = 'Sony ILCE-7CM2'
 
 def generate_profile(name, path):
